@@ -2,18 +2,17 @@ import csv
 
 
 def main():
-	edited_rows = read_from_csv()
+	edited_rows = read_and_clear()
 	write_to_file(edited_rows, 'edited.csv')
 
 
-def read_from_csv():
+def read_and_clear():
 	edited_rows = list()
 	with open('test.csv', 'r+') as csv_file:
 		reader = csv.DictReader(csv_file)
 		for row in reader:
 			bio = row['bio']
 			clean_bio = clean_string(bio)
-			print clean_bio
 			row['bio'] = clean_bio
 			edited_rows.append(row)
 	return edited_rows
@@ -41,6 +40,7 @@ def clean_string(string):
 		clean = sentence.strip()
 		sentences[i] = clean
 	return '.'.join(sentences)
+
 
 if __name__ == "__main__":
 	main()
