@@ -12,7 +12,7 @@ def read_from_csv():
 		reader = csv.DictReader(csv_file)
 		for row in reader:
 			bio = row['bio']
-			clean_bio = clean_string(bio) 
+			clean_bio = clean_string(bio)
 			print clean_bio
 			row['bio'] = clean_bio
 			edited_rows.append(row)
@@ -31,8 +31,9 @@ def write_to_file(json_list=None, file_name='output.csv'):
 				writer.writerow(row)
 		except AttributeError:
 			print 'there was a problem getting the keys from the object'
-	
-def clean_string (string): 
+
+
+def clean_string(string):
 	string = string.replace('\n', '')
 	string = string.replace('\t', '')
 	sentences = string.split('.')
