@@ -1,12 +1,13 @@
 import datetime
 
+
 class DateValidator(object):
     def __init__(self, normalized_fmt='%Y-%m-%d'):
         self.normal_fmt = normalized_fmt
-        self.months = ['January', 
-                       'February',  
+        self.months = ['January',
+                       'February',
                        'March',
-                       'April', 
+                       'April',
                        'May',
                        'June',
                        'July',
@@ -17,7 +18,6 @@ class DateValidator(object):
                        'December'
                        ]
 
-
     def is_normal_date(self, date_text):
         is_valid = True
         try:
@@ -27,7 +27,6 @@ class DateValidator(object):
             is_valid = False
         return is_valid
 
-
     def normalize_date(self, date_text):
         ''' we have dates that come in these formats
             1. 01/94
@@ -35,7 +34,8 @@ class DateValidator(object):
             3. October 1993
             4. April 10, 2003
             5. Complete nonsense
-            for cases 1 and 4 we return a string with the valid date other wise blank string
+            for cases 1 and 4 we return a string with the valid date
+            other wise blank string
         '''
         try:
             mdy_slashes = datetime.datetime.strptime(date_text, '%m/%d/%Y')
@@ -52,6 +52,6 @@ class DateValidator(object):
             # parse out date and year
             year = date_text[comma+2:]
             date = date_text[date_text.find(' ')+1:comma]
-            return ('%s-%d-%s' %  (year, month, date))
+            return ('%s-%d-%s' % (year, month, date))
         else:
             return ''

@@ -21,8 +21,11 @@ def read_and_clear():
 def write_to_file(json_list=None, file_name='output.csv'):
     with open(file_name, 'w') as out_file:
         try:
-            # putting this in a try catch because json_list might not be a list or
-            # could be None. This is likely to throw an attribute error
+            '''
+            putting this in a try catch because json_list might
+            not be a list or could be None. This is likely to
+            throw an attribute error
+            '''
             field_names = json_list[0].keys()
             writer = csv.DictWriter(out_file, fieldnames=field_names)
             writer.writeheader()
