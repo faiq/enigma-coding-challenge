@@ -1,6 +1,6 @@
 # Enigma Coding Challege
 
-This repo is my proposed solutions at [Enigma] (http://enigma.io/) coding challenges for thier data engineering position.
+This repo is my proposed solutions to [Enigma] (http://enigma.io/) coding challenges for their data engineering position.
 
 There are two parts to this:
 
